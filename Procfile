@@ -1,1 +1,1 @@
-web: java -jar target/spring-boot-admin-war.war -Dserver.port=$PORT
+web: java -jar target/spring-boot-admin-war.war --server.port=$PORT
