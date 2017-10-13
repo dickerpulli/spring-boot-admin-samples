@@ -1,1 +1,3 @@
-# spring-boot-admin-war
+# spring-boot-admin-samples
+- Heroku example
+- LDAP example
