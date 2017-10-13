@@ -32,7 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.ldapAuthentication()//
 				.userSearchFilter("(uid={0})")//
-				.contextSource().url("ldap://localhost:10389/dc=example,dc=com");
+				.userSearchBase("dc=example,dc=com")//
+				.contextSource()//
+				.url("ldap://localhost:10389");
 	}
 
 }
