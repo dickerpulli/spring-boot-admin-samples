@@ -1,12 +1,11 @@
 package de.tbosch.spring.boot.admin;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-@Profile("secure")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
@@ -27,6 +26,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// Enable so that the clients can authenticate via HTTP basic for
 		// registering
 		http.httpBasic();
+	}
+
+	@Override
+	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.ldapAuthentication()//
+				.userSearchFilter("(uid={0})")//
+				.contextSource().url("ldap://localhost:10389/dc=example,dc=com");
 	}
 
 }
