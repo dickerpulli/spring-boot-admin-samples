@@ -1,15 +1,32 @@
 dn: dc=example,dc=com
 objectclass: top
-objectclass: domain
-objectclass: extensibleObject
+objectclass: dcObject
+objectclass: organization
+o: example
 dc: example
 
-dn: uid=user,dc=example,dc=com
-objectClass: organizationalPerson
-objectClass: person
-objectClass: inetOrgPerson
-objectClass: top
+dn: ou=people,dc=example,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: ou=groups,dc=example,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: uid=user,ou=people,dc=example,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
 uid: user
-sn: user
-cn: Test-User
+sn: John
+cn: Doe
 userPassword: pass
+
+dn: cn=actuator,ou=groups,dc=example,dc=com
+objectclass: top
+objectclass: groupOfNames
+cn: actuator
+member: uid=user,ou=people,dc=example,dc=com

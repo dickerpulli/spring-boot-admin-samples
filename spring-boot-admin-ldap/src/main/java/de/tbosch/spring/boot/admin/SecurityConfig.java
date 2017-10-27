@@ -31,8 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.ldapAuthentication()//
+				.userSearchBase("ou=people,dc=example,dc=com")//
 				.userSearchFilter("(uid={0})")//
-				.userSearchBase("dc=example,dc=com")//
+				.groupSearchBase("ou=groups,dc=example,dc=com")//
+				.groupSearchFilter("(member={0})")//
 				.contextSource()//
 				.url("ldap://localhost:10389");
 	}
