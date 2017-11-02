@@ -1,0 +1,32 @@
+info:
+  stage: test
+
+spring:
+  application:
+    name: spring-boot-admin
+  cloud:
+    config:
+      enabled: false
+  boot:
+    admin:
+      url: http://localhost:8080
+      username: "${security.user.name}"       #These two are needed so that the client
+      password: "${security.user.password}"   #can register at the protected server api
+      client:
+        metadata:
+          user.name: "${security.user.name}"          #These two are needed so that the server
+          user.password: "${security.user.password}"  #can access the proteceted client endpoints
+  ldap:
+    embedded:
+      ldif: classpath:test-server.ldif
+      base-dn: dc=example,dc=com
+      port: 10389
+
+endpoints:
+  health:
+    sensitive: false
+
+security:
+  user:
+    name: user
+    password: pass
