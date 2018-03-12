@@ -9,32 +9,16 @@ spring:
       enabled: false
   boot:
     admin:
-      url: http://localhost:8080
-
-endpoints:
-  health:
-    sensitive: false
-
----
-spring:
-  profiles: insecure
-
-management:
-  security:
-    enabled: false
-
-security:
-  basic:
-    enabled: false
-
----
-spring:
-  profiles: secure
-  boot:
-    admin:
-      username: "${spring.security.user.name}"       #These two are needed so that the client
-      password: "${spring.security.user.password}"   #can register at the protected server api
       client:
+        url: http://localhost:8080
+        username: "${spring.security.user.name}"       #These two are needed so that the client
+        password: "${spring.security.user.password}"   #can register at the protected server api
         metadata:
           user.name: "${spring.security.user.name}"          #These two are needed so that the server
           user.password: "${spring.security.user.password}"  #can access the proteceted client endpoints
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

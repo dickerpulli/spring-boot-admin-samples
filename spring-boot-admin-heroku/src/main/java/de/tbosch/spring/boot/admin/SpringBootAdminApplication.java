@@ -10,7 +10,7 @@ import de.codecentric.boot.admin.server.config.EnableAdminServer;
 @Configuration
 @EnableAutoConfiguration
 @EnableAdminServer
-@Import(SecurityConfig.class)
+@Import({ SecurityConfiguration.class })
 public class SpringBootAdminApplication {
 
 	public static void main(String[] args) throws Exception {
