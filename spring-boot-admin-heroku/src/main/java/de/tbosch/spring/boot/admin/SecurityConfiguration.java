@@ -1,5 +1,6 @@
 package de.tbosch.spring.boot.admin;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -22,6 +23,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		successHandler.setTargetUrlParameter("redirectTo");
 
 		http.authorizeRequests()//
+				.requestMatchers(EndpointRequest.to("info", "health")).permitAll()//
+				.requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")//
 				.antMatchers(adminContextPath + "/assets/**").permitAll()//
 				.antMatchers(adminContextPath + "/login").permitAll()//
 				.anyRequest().authenticated()//
