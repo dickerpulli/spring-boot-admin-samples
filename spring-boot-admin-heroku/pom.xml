@@ -4,26 +4,25 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tbosch.spring.boot.admin</groupId>
 	<artifactId>spring-boot-admin-heroku</artifactId>
-	<version>1.1.0</version>
-	<packaging>jar</packaging>
+	<version>1.2.0</version>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.0.RELEASE</version>
+		<version>2.0.3.RELEASE</version>
 	</parent>
 	<properties>
-		<java.version>9</java.version>
-		<spring-boot-admin.version>2.0.0-SNAPSHOT</spring-boot-admin.version>
+		<java.version>10</java.version>
+		<spring-boot-admin.version>2.0.1</spring-boot-admin.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
 			<version>${spring-boot-admin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -57,16 +56,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<repositories>
-		<repository>
-			<id>snapshots-repo</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 </project>

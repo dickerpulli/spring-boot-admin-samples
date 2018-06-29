@@ -4,9 +4,6 @@ info:
 spring:
   application:
     name: spring-boot-admin
-  cloud:
-    config:
-      enabled: false
   boot:
     admin:
       client:

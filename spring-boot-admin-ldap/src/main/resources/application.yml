@@ -4,29 +4,28 @@ info:
 spring:
   application:
     name: spring-boot-admin
-  cloud:
-    config:
-      enabled: false
   boot:
-    admin:
-      url: http://localhost:8080
-      username: "${security.user.name}"       #These two are needed so that the client
-      password: "${security.user.password}"   #can register at the protected server api
+    admin:      
       client:
-        metadata:
-          user.name: "${security.user.name}"          #These two are needed so that the server
-          user.password: "${security.user.password}"  #can access the proteceted client endpoints
+        url: http://localhost:8080
+        username: "${spring.security.user.name}"       #These two are needed so that the client
+        password: "${spring.security.user.password}"   #can register at the protected server api
+        instance:
+          metadata:
+            user.name: "${spring.security.user.name}"          #These two are needed so that the server
+            user.password: "${spring.security.user.password}"  #can access the proteceted client endpoints
   ldap:
     embedded:
       ldif: classpath:test-server.ldif
       base-dn: dc=example,dc=com
       port: 10389
+  security:
+    user:
+      name: user
+      password: pass
 
-endpoints:
-  health:
-    sensitive: false
-
-security:
-  user:
-    name: user
-    password: pass
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
