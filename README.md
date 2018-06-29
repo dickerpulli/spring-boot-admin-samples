@@ -1,3 +1,3 @@
 # spring-boot-admin-samples
-- Heroku example
-- LDAP example
+- [Heroku example](spring-boot-admin-heroku)
+- [LDAP example](spring-boot-admin-ldap)
