@@ -12,7 +12,7 @@
 		<version>2.0.3.RELEASE</version>
 	</parent>
 	<properties>
-		<revision>SNAPSHOT</revision>
+		<revision>1.0.0-SNAPSHOT</revision>
 		<spring-boot-admin.version>2.0.1</spring-boot-admin.version>
 	</properties>
 	<modules>
