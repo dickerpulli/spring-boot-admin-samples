@@ -6,7 +6,8 @@
 	<parent>
 		<groupId>de.tbosch.spring.boot.admin</groupId>
 		<artifactId>spring-boot-admin-samples</artifactId>
-		<relativePath>..<relativePath>
+		<version>${revision}</version>
+		<relativePath>..</relativePath>
 	</parent>
 	<properties>
 		<java.version>9</java.version>

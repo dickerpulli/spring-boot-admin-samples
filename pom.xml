@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tbosch.spring.boot.admin</groupId>
 	<artifactId>spring-boot-admin-samples</artifactId>
-	<version>1.5.0</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -12,6 +12,7 @@
 		<version>2.0.3.RELEASE</version>
 	</parent>
 	<properties>
+		<revision>SNAPSHOT</revision>
 		<spring-boot-admin.version>2.0.1</spring-boot-admin.version>
 	</properties>
 	<modules>
