@@ -4,8 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tbosch.spring.boot.admin</groupId>
 	<artifactId>spring-boot-admin-samples</artifactId>
-	<version>1.0.0</version>
+	<version>1.5.0</version>
 	<packaging>pom</packaging>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+	</parent>
+	<properties>
+		<spring-boot-admin.version>2.0.1</spring-boot-admin.version>
+	</properties>
 	<modules>
 		<module>spring-boot-admin-heroku</module>
 		<module>spring-boot-admin-ldap</module>
